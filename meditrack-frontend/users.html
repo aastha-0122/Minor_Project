@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User & Role Management - MediTrack</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="app-sidebar" id="appSidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="brand-logo">
+          <div class="brand-icon">
+            <i class="bi bi-heart-pulse-fill"></i>
+          </div>
+          <span>Medi<span class="text-teal">Track</span></span>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Overview</div>
+        <a href="dashboard.html" class="sidebar-item">
+          <i class="bi bi-grid-1x2-fill"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <div class="nav-section-title">Medicine Management</div>
+        <a href="medicines.html" class="sidebar-item">
+          <i class="bi bi-capsule"></i>
+          <span>Medicines</span>
+        </a>
+        <a href="batches.html" class="sidebar-item">
+          <i class="bi bi-calendar-check"></i>
+          <span>Batches & Expiry</span>
+        </a>
+        <a href="inventory.html" class="sidebar-item">
+          <i class="bi bi-arrow-left-right"></i>
+          <span>Inventory</span>
+        </a>
+
+        <div class="nav-section-title">Monitoring & Insights</div>
+        <a href="availability.html" class="sidebar-item">
+          <i class="bi bi-geo-alt"></i>
+          <span>Availability</span>
+        </a>
+        <a href="alerts.html" class="sidebar-item">
+          <i class="bi bi-bell-fill"></i>
+          <span>Alerts</span>
+        </a>
+        <a href="reports.html" class="sidebar-item">
+          <i class="bi bi-bar-chart-line-fill"></i>
+          <span>Reports</span>
+        </a>
+
+        <div class="nav-section-title">Administration</div>
+        <a href="users.html" class="sidebar-item active">
+          <i class="bi bi-people-fill"></i>
+          <span>Users</span>
+        </a>
+        <a href="settings.html" class="sidebar-item">
+          <i class="bi bi-gear-fill"></i>
+          <span>Settings</span>
+        </a>
+        <a href="javascript:void(0)" class="sidebar-item logout-btn text-danger">
+          <i class="bi bi-box-arrow-right"></i>
+          <span>Logout</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-mini-profile">
+          <div class="user-avatar user-avatar-initials">RS</div>
+          <div class="user-info-text">
+            <div class="user-name user-name-display">Dr. Rajesh Sharma</div>
+            <div class="user-role user-role-display">Chief Pharmacist</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="app-main">
+      <header class="top-navbar">
+        <div class="navbar-left">
+          <button class="sidebar-toggle-btn" id="sidebarToggleBtn">
+            <i class="bi bi-list fs-5"></i>
+          </button>
+          <div class="search-input-group">
+            <i class="bi bi-search"></i>
+            <input type="text" class="form-control" placeholder="Search staff members...">
+          </div>
+        </div>
+        <div class="navbar-right">
+          <div class="branch-selector d-none d-md-flex">
+            <i class="bi bi-hospital text-teal"></i>
+            <span class="pharmacy-branch-display">Central Hospital Pharmacy</span>
+          </div>
+          <a href="alerts.html" class="notification-bell-btn text-decoration-none">
+            <i class="bi bi-bell"></i>
+            <span class="notification-count" id="headerAlertCount">3</span>
+          </a>
+          <div class="dropdown">
+            <button class="btn p-0 border-0" type="button" data-bs-toggle="dropdown">
+              <div class="user-avatar user-avatar-initials" style="width: 38px; height: 38px;">RS</div>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+              <li class="px-3 py-2 border-bottom">
+                <div class="fw-bold user-name-display">Dr. Rajesh Sharma</div>
+                <div class="small text-slate-500 user-role-display">Admin</div>
+              </li>
+              <li><a class="dropdown-item" href="settings.html"><i class="bi bi-gear me-2"></i>Settings</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger logout-btn" href="javascript:void(0)"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <main class="content-body">
+        
+        <!-- Page Header -->
+        <div class="page-header">
+          <div>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="dashboard.html" class="text-teal text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item active">Users</li>
+              </ol>
+            </nav>
+            <h1 class="page-title">Healthcare Staff & User Accounts</h1>
+            <p class="page-subtitle">Manage role-based permissions, pharmacist credentials, and branch access control</p>
+          </div>
+          <div class="page-actions">
+            <button type="button" class="btn btn-teal btn-sm" onclick="openAddUserModal()">
+              <i class="bi bi-person-plus-fill me-1"></i>Add Staff Member
+            </button>
+          </div>
+        </div>
+
+        <!-- Metric Cards -->
+        <div class="row g-3 mb-4">
+          <div class="col-md-3 col-sm-6">
+            <div class="stat-card teal">
+              <div>
+                <div class="stat-title">Total Accounts</div>
+                <div class="stat-value" id="totalUsersCount">0</div>
+                <div class="stat-subtext text-teal"><i class="bi bi-people"></i> Active directory</div>
+              </div>
+              <div class="stat-icon teal"><i class="bi bi-person-vcard"></i></div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="stat-card blue">
+              <div>
+                <div class="stat-title">Administrators</div>
+                <div class="stat-value text-primary" id="totalAdminsCount">0</div>
+                <div class="stat-subtext text-primary"><i class="bi bi-shield-lock"></i> Full Access</div>
+              </div>
+              <div class="stat-icon blue"><i class="bi bi-shield-check"></i></div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="stat-card amber">
+              <div>
+                <div class="stat-title">Pharmacists</div>
+                <div class="stat-value text-warning" id="totalPharmacistsCount">0</div>
+                <div class="stat-subtext text-warning"><i class="bi bi-capsule"></i> Dispense & Inward</div>
+              </div>
+              <div class="stat-icon amber"><i class="bi bi-person-badge"></i></div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="stat-card teal">
+              <div>
+                <div class="stat-title">Support Staff</div>
+                <div class="stat-value text-slate-700" id="totalStaffCount">0</div>
+                <div class="stat-subtext text-slate-500"><i class="bi bi-person"></i> General Ops</div>
+              </div>
+              <div class="stat-icon teal"><i class="bi bi-person-workspace"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Toolbar Filters -->
+        <div class="card card-custom mb-4">
+          <div class="card-body-custom py-3">
+            <div class="toolbar-container">
+              <div class="toolbar-search">
+                <i class="bi bi-search"></i>
+                <input type="text" id="userSearchInput" class="form-control" placeholder="Search by name, email, or facility...">
+              </div>
+
+              <div class="toolbar-actions">
+                <select id="userRoleFilter" class="form-select form-select-sm" style="min-width: 150px;">
+                  <option value="All">All Roles</option>
+                  <option value="Admin">Admin</option>
+                  <option value="Pharmacist">Pharmacist</option>
+                  <option value="Staff">Staff</option>
+                </select>
+
+                <select id="userStatusFilter" class="form-select form-select-sm" style="min-width: 140px;">
+                  <option value="All">All Statuses</option>
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Users Table -->
+        <div class="card card-custom">
+          <div class="table-responsive">
+            <table class="table table-custom mb-0">
+              <thead>
+                <tr>
+                  <th>Staff Member</th>
+                  <th>Role</th>
+                  <th>Pharmacy Location</th>
+                  <th>Account Status</th>
+                  <th>Last Session</th>
+                  <th class="text-end">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="usersTableBody">
+                <tr>
+                  <td colspan="6" class="text-center py-5">
+                    <div class="spinner-border text-teal"></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+
+      <footer class="app-footer">
+        <div><strong>MediTrack</strong> &copy; 2026 Smart Medicine Availability & Expiry Tracking System.</div>
+        <div class="text-slate-400">User Access Control</div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MODAL: ADD USER
+       ============================================================ -->
+  <div class="modal fade" id="addUserModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow">
+        <div class="modal-header border-bottom">
+          <h5 class="modal-title fw-bold text-slate-800 d-flex align-items-center gap-2">
+            <i class="bi bi-person-plus text-teal"></i>Register Healthcare User
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="addUserForm" novalidate>
+          <div class="modal-body p-4">
+            <div class="row g-3">
+              <div class="col-12">
+                <label class="form-label">Full Name & Title <span class="text-danger">*</span></label>
+                <input type="text" id="addUserName" class="form-control" placeholder="e.g. Dr. Sunita Kulkarni, PharmD" required>
+                <div class="invalid-feedback">Name is required.</div>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">Official Email Address <span class="text-danger">*</span></label>
+                <input type="email" id="addUserEmail" class="form-control" placeholder="s.kulkarni@meditrack.org" required>
+                <div class="invalid-feedback">Valid email required.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Access Role <span class="text-danger">*</span></label>
+                <select id="addUserRole" class="form-select" required>
+                  <option value="Pharmacist" selected>Pharmacist</option>
+                  <option value="Admin">Administrator</option>
+                  <option value="Staff">Dispensary Staff</option>
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Initial Status <span class="text-danger">*</span></label>
+                <select id="addUserStatus" class="form-select" required>
+                  <option value="Active" selected>Active</option>
+                  <option value="Inactive">Inactive</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">Assigned Pharmacy Branch <span class="text-danger">*</span></label>
+                <select id="addUserPharmacy" class="form-select" required>
+                  <option value="Central Hospital Pharmacy" selected>Central Hospital Pharmacy</option>
+                  <option value="East Wing Dispensary">East Wing Dispensary</option>
+                  <option value="North Outpatient Clinic">North Outpatient Clinic</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer border-top">
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-teal px-4 fw-semibold">Create Account</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MODAL: EDIT USER
+       ============================================================ -->
+  <div class="modal fade" id="editUserModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow">
+        <div class="modal-header border-bottom">
+          <h5 class="modal-title fw-bold text-slate-800">Edit User Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="editUserForm" novalidate>
+          <input type="hidden" id="editUserId">
+          <div class="modal-body p-4">
+            <div class="row g-3">
+              <div class="col-12">
+                <label class="form-label">Full Name</label>
+                <input type="text" id="editUserName" class="form-control" required>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Email</label>
+                <input type="email" id="editUserEmail" class="form-control" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Role</label>
+                <select id="editUserRole" class="form-select">
+                  <option value="Admin">Admin</option>
+                  <option value="Pharmacist">Pharmacist</option>
+                  <option value="Staff">Staff</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Status</label>
+                <select id="editUserStatus" class="form-select">
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Pharmacy Branch</label>
+                <select id="editUserPharmacy" class="form-select">
+                  <option value="Central Hospital Pharmacy">Central Hospital Pharmacy</option>
+                  <option value="East Wing Dispensary">East Wing Dispensary</option>
+                  <option value="North Outpatient Clinic">North Outpatient Clinic</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer border-top">
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-teal px-4 fw-semibold">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/users.js"></script>
+</body>
+</html>

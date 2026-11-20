@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediTrack - Smart Medicine Availability & Expiry Tracking System</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="bg-white">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-teal py-2 text-white text-center small fw-medium">
+    <div class="container d-flex justify-content-between align-items-center">
+      <span><i class="bi bi-shield-check me-2"></i>Official Healthcare Inventory & Real-Time Availability Network</span>
+      <div class="d-none d-md-flex gap-3">
+        <span><i class="bi bi-telephone me-1"></i>Emergency Helpline: 1800-MEDITRACK</span>
+        <span><i class="bi bi-clock me-1"></i>24/7 Availability Monitor</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <div class="brand-icon">
+          <i class="bi bi-heart-pulse-fill"></i>
+        </div>
+        <div>
+          <span class="fw-bold fs-4 text-slate-800">Medi<span class="text-teal">Track</span></span>
+          <span class="d-block small text-slate-500" style="font-size: 0.65rem; margin-top: -4px;">Smart Medicine Management</span>
+        </div>
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#landingNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="landingNavbar">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-medium">
+          <li class="nav-item"><a class="nav-link active text-teal" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-slate-700" href="availability.html">Find Medicines</a></li>
+          <li class="nav-item"><a class="nav-link text-slate-700" href="#features">Key Features</a></li>
+          <li class="nav-item"><a class="nav-link text-slate-700" href="#analytics">Healthcare Impact</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2">
+          <a href="availability.html" class="btn btn-outline-teal">
+            <i class="bi bi-search me-1"></i>Check Availability
+          </a>
+          <a href="login.html" class="btn btn-primary bg-teal">
+            <i class="bi bi-person-fill-lock me-1"></i>Staff Portal Login
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Public Medicine Availability Quick Search -->
+  <header class="py-5" style="background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%);">
+    <div class="container py-4">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-7">
+          <span class="badge bg-teal-subtle text-teal px-3 py-2 rounded-pill fw-semibold mb-3">
+            <i class="bi bi-broadcast me-1"></i>Real-time Expiry & Stock Tracking System
+          </span>
+          <h1 class="display-5 fw-bold text-slate-900 mb-3">
+            Never Run Out of <span class="text-teal">Essential Medicines</span>. Prevent Expiry Losses.
+          </h1>
+          <p class="lead text-slate-600 mb-4">
+            MediTrack is an enterprise healthcare inventory platform empowering pharmacies, clinics, and hospital networks to monitor batch lifecycles, eliminate expired pharmaceuticals, and ensure life-saving medicines are always available.
+          </p>
+
+          <!-- Quick Medicine Availability Search Box -->
+          <div class="card card-custom p-4 border-0 shadow-lg">
+            <div class="text-slate-800 fw-bold mb-3 d-flex align-items-center gap-2">
+              <i class="bi bi-geo-alt-fill text-teal"></i>
+              <span>Locate Available Medicines in Nearby Facilities</span>
+            </div>
+            <form action="availability.html" method="GET">
+              <div class="row g-2">
+                <div class="col-md-5">
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-capsule text-slate-400"></i></span>
+                    <input type="text" name="q" class="form-control border-start-0" placeholder="e.g. Amoxicillin, Insulin..." required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-pin-map text-slate-400"></i></span>
+                    <input type="text" name="city" class="form-control border-start-0" placeholder="City or PIN Code">
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <button type="submit" class="btn btn-teal w-100 fw-semibold">
+                    <i class="bi bi-search me-1"></i>Search
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div class="small text-slate-500 mt-2">
+              Popular searches: <a href="availability.html" class="text-teal text-decoration-none">Amoxicillin 500mg</a>, <a href="availability.html" class="text-teal text-decoration-none">Paracetamol 650mg</a>, <a href="availability.html" class="text-teal text-decoration-none">Insulin Glargine</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="card card-custom border-0 shadow-lg p-4 bg-white position-relative">
+            <div class="d-flex align-items-center justify-content-between pb-3 border-bottom mb-3">
+              <div class="d-flex align-items-center gap-2">
+                <span class="status-dot success"></span>
+                <span class="fw-bold text-slate-800">Pharmacy Network Live Status</span>
+              </div>
+              <span class="badge bg-success-subtle text-success">Active &bull; Verified</span>
+            </div>
+
+            <!-- Mini Live Stat Preview -->
+            <div class="row g-3 mb-3">
+              <div class="col-6">
+                <div class="p-3 bg-light rounded-3 text-center border">
+                  <div class="fs-4 fw-bold text-teal">99.4%</div>
+                  <div class="small text-slate-500">Stock Availability</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-3 bg-light rounded-3 text-center border">
+                  <div class="fs-4 fw-bold text-success">&lt; 0.1%</div>
+                  <div class="small text-slate-500">Expired Waste Rate</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3 rounded-3 border mb-3 bg-teal-subtle">
+              <div class="d-flex align-items-center justify-content-between mb-1">
+                <span class="fw-semibold text-slate-800"><i class="bi bi-bell-fill text-warning me-1"></i>Automated Expiry Safeguard</span>
+                <span class="badge badge-valid">FEFO Enforced</span>
+              </div>
+              <p class="small text-slate-600 mb-0">
+                First-Expired First-Out dispensing algorithms alert pharmacists 30, 60, and 90 days before batch expirations.
+              </p>
+            </div>
+
+            <div class="text-center pt-2">
+              <a href="dashboard.html" class="btn btn-teal w-100 py-2 fw-semibold">
+                <i class="bi bi-speedometer2 me-2"></i>Open Pharmacy Management Dashboard
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Features Section -->
+  <section class="py-5" id="features">
+    <div class="container py-4">
+      <div class="text-center max-w-xl mx-auto mb-5">
+        <span class="badge bg-teal-subtle text-teal fw-semibold px-3 py-2 rounded-pill mb-2">Capabilities</span>
+        <h2 class="fw-bold text-slate-900">Comprehensive Healthcare Inventory Suite</h2>
+        <p class="text-slate-500">Built specifically to meet regulatory compliance, reduce medical wastage, and optimize hospital supply chains.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Feature 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card card-custom h-100 p-4">
+            <div class="stat-icon teal mb-3">
+              <i class="bi bi-capsule"></i>
+            </div>
+            <h5 class="fw-bold text-slate-800 mb-2">Medicine & Batch Management</h5>
+            <p class="text-slate-500 small mb-3">
+              Catalog generic names, dosages, categories, manufacturers, and maintain granular batch records with purchase pricing and suppliers.
+            </p>
+            <a href="medicines.html" class="text-teal fw-semibold small text-decoration-none mt-auto">
+              Explore Medicines <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card card-custom h-100 p-4">
+            <div class="stat-icon amber mb-3">
+              <i class="bi bi-calendar-check"></i>
+            </div>
+            <h5 class="fw-bold text-slate-800 mb-2">Automated Expiry Tracking</h5>
+            <p class="text-slate-500 small mb-3">
+              Real-time countdown of days remaining for each batch with color-coded status badges: Valid, Upcoming Expiry, Near Expiry, and Expired.
+            </p>
+            <a href="batches.html" class="text-teal fw-semibold small text-decoration-none mt-auto">
+              Track Batches <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card card-custom h-100 p-4">
+            <div class="stat-icon blue mb-3">
+              <i class="bi bi-arrow-left-right"></i>
+            </div>
+            <h5 class="fw-bold text-slate-800 mb-2">Stock In / Out Validation</h5>
+            <p class="text-slate-500 small mb-3">
+              Receive stock, dispense against prescriptions, and reconcile audit adjustments with client-side guards preventing negative inventories.
+            </p>
+            <a href="inventory.html" class="text-teal fw-semibold small text-decoration-none mt-auto">
+              Manage Inventory <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card card-custom h-100 p-4">
+            <div class="stat-icon red mb-3">
+              <i class="bi bi-exclamation-octagon"></i>
+            </div>
+            <h5 class="fw-bold text-slate-800 mb-2">Smart Clinical Alerts</h5>
+            <p class="text-slate-500 small mb-3">
+              Instant alerts for near-expiry, expired units, and stock levels dropping below minimum thresholds with quarantine workflows.
+            </p>
+            <a href="alerts.html" class="text-teal fw-semibold small text-decoration-none mt-auto">
+              View Active Alerts <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card card-custom h-100 p-4">
+            <div class="stat-icon teal mb-3">
+              <i class="bi bi-geo-alt"></i>
+            </div>
+            <h5 class="fw-bold text-slate-800 mb-2">Public Availability Portal</h5>
+            <p class="text-slate-500 small mb-3">
+              Citizen-friendly search for available medicines across city hospitals and retail pharmacies without disclosing private supplier data.
+            </p>
+            <a href="availability.html" class="text-teal fw-semibold small text-decoration-none mt-auto">
+              Check Medicine Finder <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card card-custom h-100 p-4">
+            <div class="stat-icon blue mb-3">
+              <i class="bi bi-bar-chart-line"></i>
+            </div>
+            <h5 class="fw-bold text-slate-800 mb-2">Analytics & CSV Reports</h5>
+            <p class="text-slate-500 small mb-3">
+              Visual Chart.js dashboards for consumption patterns, financial valuation of expiring stock, and single-click CSV/Print export.
+            </p>
+            <a href="reports.html" class="text-teal fw-semibold small text-decoration-none mt-auto">
+              View Reports <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Demo Access Banner -->
+  <section class="py-5 bg-light border-top border-bottom" id="analytics">
+    <div class="container">
+      <div class="card card-custom border-0 p-4 p-md-5 bg-teal text-white shadow-lg">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <h3 class="fw-bold mb-2">Ready to test MediTrack?</h3>
+            <p class="mb-0 text-white-50">
+              Access the complete frontend demo with realistic pre-populated healthcare data, dynamic calculations, and Flask backend REST ready endpoints.
+            </p>
+          </div>
+          <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+            <a href="dashboard.html" class="btn btn-light text-teal fw-bold px-4 py-2 me-2">
+              Launch Dashboard
+            </a>
+            <a href="login.html" class="btn btn-outline-light px-4 py-2">
+              Login Portal
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-5">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="brand-icon">
+              <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+            <span class="fw-bold fs-4 text-white">Medi<span class="text-teal">Track</span></span>
+          </div>
+          <p class="text-slate-400 small">
+            Smart Medicine Availability & Expiry Tracking System. Designed for hospital dispensaries, pharmacy chains, and outpatient clinics.
+          </p>
+          <div class="small text-slate-500">
+            Powered by HTML5, CSS3, Bootstrap 5, Vanilla JS & Chart.js.
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h6 class="fw-bold text-white mb-3">Core Modules</h6>
+          <ul class="list-unstyled small text-slate-400 space-y-2">
+            <li class="mb-2"><a href="dashboard.html" class="text-decoration-none text-slate-400">Dashboard</a></li>
+            <li class="mb-2"><a href="medicines.html" class="text-decoration-none text-slate-400">Medicines</a></li>
+            <li class="mb-2"><a href="batches.html" class="text-decoration-none text-slate-400">Batches & Expiry</a></li>
+            <li class="mb-2"><a href="inventory.html" class="text-decoration-none text-slate-400">Inventory</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h6 class="fw-bold text-white mb-3">Monitoring</h6>
+          <ul class="list-unstyled small text-slate-400">
+            <li class="mb-2"><a href="availability.html" class="text-decoration-none text-slate-400">Availability</a></li>
+            <li class="mb-2"><a href="alerts.html" class="text-decoration-none text-slate-400">Active Alerts</a></li>
+            <li class="mb-2"><a href="reports.html" class="text-decoration-none text-slate-400">Reports</a></li>
+            <li class="mb-2"><a href="users.html" class="text-decoration-none text-slate-400">Users</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4">
+          <h6 class="fw-bold text-white mb-3">Backend Integration</h6>
+          <p class="text-slate-400 small mb-2">
+            Communicates seamlessly with Flask REST APIs via standard <code>fetch()</code> methods with authorization headers.
+          </p>
+          <div class="badge bg-slate-800 text-teal border border-secondary p-2 font-monospace">
+            REST API: http://127.0.0.1:5000/api
+          </div>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary mt-4 pt-4 text-center small text-slate-400">
+        &copy; 2026 MediTrack HealthTech Systems. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

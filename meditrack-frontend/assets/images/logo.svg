@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="meditrackGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6" />
+      <stop offset="100%" stop-color="#0d9488" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="40" fill="url(#meditrackGrad)" />
+  <path d="M100 45 C75 45, 55 65, 55 90 C55 125, 100 160, 100 160 C100 160, 145 125, 145 90 C145 65, 125 45, 100 45 Z" fill="#ffffff" opacity="0.2" />
+  <path d="M60 100 L85 100 L95 75 L108 125 L118 90 L125 100 L140 100" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="100" cy="100" r="8" fill="#ffffff" />
+</svg>
